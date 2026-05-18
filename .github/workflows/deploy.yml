@@ -39,11 +39,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             mkdir -p /home/ubuntu/app && cd /home/ubuntu/app
-            
+
             # Detener contenedores previos si existen
             docker stop casino-front-container || true
             docker rm casino-front-container || true
-            
+
             # Descargar la nueva versión y levantar en el puerto 80
             docker pull pvblinho/casino-frontend:latest
             docker run -d --name casino-front-container -p 80:80 pvblinho/casino-frontend:latest

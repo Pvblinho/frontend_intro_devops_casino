@@ -46,4 +46,8 @@ jobs:
 
             # Descargar la nueva versión y levantar en el puerto 80
             docker pull pvblinho/casino-frontend:latest
-            docker run -d --name casino-front-container -p 80:80 pvblinho/casino-frontend:latest
+            docker run -d \
+              --name casino-front-container \
+              -p 80:8080 \
+              -e BACKEND_HOST=10.0.129.150 \
+              pvblinho/casino-frontend:latest
